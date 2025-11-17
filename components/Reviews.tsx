@@ -80,26 +80,26 @@ export default function Reviews({ location }: ReviewsProps) {
   };
 
   return (
-    <section className="mt-16 bg-gradient-to-br from-zinc-900/50 to-zinc-950/30 p-8 rounded-2xl border border-amber-900/20 shadow-lg">
-      <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent">
+    <section className="mt-8 sm:mt-12 lg:mt-16 bg-gradient-to-br from-zinc-900/50 to-zinc-950/30 p-4 sm:p-6 lg:p-8 rounded-2xl border border-amber-900/20 shadow-lg">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent">
         Customer Reviews
-        {location && <span className="block text-2xl mt-2">from {location}</span>}
+        {location && <span className="block text-xl sm:text-2xl mt-2">from {location}</span>}
       </h2>
       
-      <div className="grid gap-6">
+      <div className="grid gap-4 sm:gap-6">
         {reviews.map((review) => (
           <Card key={review.id} className="bg-zinc-900/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 border border-amber-900/20">
-            <CardHeader>
-              <div className="flex items-center justify-between">
+            <CardHeader className="p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
                 <div>
-                  <div className="font-semibold text-lg text-amber-500">{review.name}</div>
-                  <div className="text-sm text-amber-500/60">{review.date}</div>
+                  <div className="font-semibold text-base sm:text-lg text-amber-500">{review.name}</div>
+                  <div className="text-xs sm:text-sm text-amber-500/60">{review.date}</div>
                 </div>
-                <div className="flex items-center bg-amber-950/30 p-2 rounded-lg">
+                <div className="flex items-center bg-amber-950/30 p-2 rounded-lg self-start sm:self-auto">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${
+                      className={`w-4 h-4 sm:w-5 sm:h-5 ${
                         i < review.rating ? 'fill-amber-500 text-amber-500' : 'text-amber-900'
                       }`}
                     />
@@ -107,13 +107,13 @@ export default function Reviews({ location }: ReviewsProps) {
                 </div>
               </div>
             </CardHeader>
-            <CardContent>
-              <p className="mb-6 text-lg leading-relaxed text-amber-500/80">{review.review}</p>
+            <CardContent className="p-4 sm:p-6 pt-0">
+              <p className="mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed text-amber-500/80">{review.review}</p>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => handleHelpful(review.id)}
-                className="flex items-center gap-2 bg-amber-950/30 hover:bg-amber-950/50 border-amber-900/50"
+                className="flex items-center gap-2 bg-amber-950/30 hover:bg-amber-950/50 border-amber-900/50 text-sm sm:text-base min-h-[44px]"
               >
                 <ThumbsUp className="w-4 h-4 text-amber-500" />
                 <span className="text-amber-500">Helpful ({helpfulCounts[review.id]})</span>

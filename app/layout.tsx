@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 
@@ -18,7 +19,53 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4203342865287205"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (typeof window !== 'undefined') {
+                  // Remove browser extension injected attributes before React hydrates
+                  const removeExtensionAttributes = () => {
+                    const attributesToRemove = [
+                      'bis_skin_checked',
+                      'bis_register',
+                      '__processed_6b15e0b0-08c2-4161-9771-706fb50968c7__'
+                    ];
+                    
+                    const removeFromElement = (el) => {
+                      attributesToRemove.forEach(attr => {
+                        if (el.hasAttribute(attr)) {
+                          el.removeAttribute(attr);
+                        }
+                      });
+                    };
+                    
+                    // Remove from body and all descendants
+                    removeFromElement(document.body);
+                    document.body.querySelectorAll('*').forEach(removeFromElement);
+                  };
+                  
+                  // Run immediately and also after DOM is ready
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', removeExtensionAttributes);
+                  } else {
+                    removeExtensionAttributes();
+                  }
+                  
+                  // Also run after a short delay to catch late-injected attributes
+                  setTimeout(removeExtensionAttributes, 0);
+                }
+              })();
+            `,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
