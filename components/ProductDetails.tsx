@@ -14,15 +14,15 @@ import {
 
 const productImages = [
   {
-    url: "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?q=80&w=1000",
+    url: "/old monk.jpg",
     alt: "Old Monk Rum Bottle 750ml"
   },
   {
-    url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1000",
+    url: "/download.jpg",
     alt: "Old Monk Rum Pouring"
   },
   {
-    url: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=1000",
+    url: "/download (1).jpg",
     alt: "Old Monk Rum Display"
   }
 ];
