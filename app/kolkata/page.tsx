@@ -4,7 +4,7 @@ import TastingNotes from '@/components/TastingNotes';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Old Monk Rum Price in Kolkata (2025) - 90ml, 180ml, 750ml & 1L Rates',
+  title: 'Old Monk Rum Price in Kolkata - 90ml, 180ml, 750ml & 1L Rates',
   description: '✅ Check the latest Old Monk rum prices in Kolkata for 2025. Get updated rates for 90ml, 180ml, 375ml, 750ml, and 1L bottles. Complete price list and details.',
   keywords: 'Old Monk Kolkata price 2025, Old Monk price list Kolkata, Old Monk 750ml price Kolkata, Old Monk 180ml price Kolkata',
 };
