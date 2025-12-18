@@ -5,6 +5,15 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  async redirects() {
+    return [
+      {
+        source: '/ads.txt',
+        destination: 'https://srv.adstxtmanager.com/19390/oldmonkprice.in',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
