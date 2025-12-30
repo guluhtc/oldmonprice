@@ -18,7 +18,6 @@ export default function Header() {
     { href: '/kolkata', label: 'Kolkata' },
     { href: '/pune', label: 'Pune' },
     { href: '/hyderabad', label: 'Hyderabad' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -36,7 +35,7 @@ export default function Header() {
               <p className="text-xs sm:text-sm text-amber-500/80 hidden sm:block">Since 1954 | For The Spirit of Life</p>
             </div>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
